@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Summary</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        header .search {
+            height: 100%;
+            display: flex;
+            position:sticky;
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+            margin-left: 0; /* Remove margin to center the element */
+            margin-top: 20px;
+        }
+        
+        header .search .search-con {
+            width: 540px;
+            height: 36px;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 23%);
+            display: flex;
+        }
+        
+        header .search .search-con input {
+            width: calc(100% - 32px); /* Adjusts the width */
+            padding: 0 16px; /* Adjust padding */
+            outline: none;
+            border: none;
+        }
+        
+        header .search .search-con .search-btn {
+            width: 36px;
+            padding: 0 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: white;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+        }
+        
+        
+  /* General body styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background: url("loginimg.jpg");
+}
+
+#mainContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Profile container */
+#profileContainer {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 60%;
+    max-width: 500px;
+    margin-right: 20px;
+}
+
+/* Profile heading */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Profile photo styling */
+#photoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#profilePhoto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Strong elements for labels */
+strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Matches container */
+#matchesContainer {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 60px;
+    width: 35%;
+    height:700px;
+    width:800px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+}
+
+h3 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Match profile item */
+.matchProfile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+.matchPhoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.matchDetails {
+    font-size: 14px;
+    color: #555;
+}
+
+.matchDetails strong {
+    font-weight: bold;
+    color:black;
+}
+.matchDetails p button{
+    background:lightcoral;
+}
+.matchDetails p button:hover{
+    background-color: red;
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    #mainContainer {
+        flex-direction: column;
+    }
+
+    #profileContainer, #matchesContainer {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+    </style>
+</head>
+<body><header>
+    <nav>
+        <div class="search">
+              <div class="search-con">
+                <input type="text" id="search-input"class="search-box" placeholder="search for your matches" >
+                <button class="search-btn" >
+                 <svg width="20" height="20" viewBox="0 0 17 18" class="" xmlns="http://www.w3.org/2000/svg"><g fill="#2874F1" fill-rule="evenodd"><path class="_34RNph" d="m11.618 9.897l4.225 4.212c.092.092.101.232.02.313l-1.465 1.46c-.081.081-.221.072-.314-.02l-4.216-4.203"></path><path class="_34RNph" d="m6.486 10.901c-2.42 0-4.381-1.956-4.381-4.368 0-2.413 1.961-4.369 4.381-4.369 2.42 0 4.381 1.956 4.381 4.369 0 2.413-1.961 4.368-4.381 4.368m0-10.835c-3.582 0-6.486 2.895-6.486 6.467 0 3.572 2.904 6.467 6.486 6.467 3.582 0 6.486-2.895 6.486-6.467 0-3.572-2.904-6.467-6.486-6.467"></path></g></svg>
+                </button>
+              </div>
+    </nav>
+    <div id="mainContainer">
+        <!-- Profile Details -->
+        <div id="profileContainer">
+            <h2>Profile Details</h2>
+
+            <!-- Profile Photo -->
+            <div id="photoContainer">
+                <img id="profilePhoto" src="girl2.jpeg" alt="Profile Photo">
+            </div>
+
+            <div id="profileSummary"></div>
+        </div>
+
+        <!-- Matches Profiles -->
+        <div id="matchesContainer">
+            <h3>Matching Profiles</h3>
+
+            <div class="matchProfile">
+                <img class="matchPhoto" src="cboy1.webp" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong> suraj</p>
+                    <p><strong>Age:</strong> 28</p>
+                    <p><strong>City:</strong> INDIA , Rajastan</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+            
+            <div class="matchProfile">
+                <img class="matchPhoto" src="hboy10.jpeg" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong> Divakar</p>
+                    <p><strong>Age:</strong> 26</p>
+                    <p><strong>City:</strong>INDIA,Andra Pradesh</p>
+                    <p><button>Intrest</button></p>
+                    
+                </div>
+            </div>
+
+            <div class="matchProfile">
+                <img class="matchPhoto" src="mboy3.jpeg" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong>Harsha</p>
+                    <p><strong>Age:</strong> 30</p>
+                    <p><strong>City:</strong> INDIA , Kerala</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+            <div class="matchProfile">
+                <img class="matchPhoto" src="hboy5.jpeg" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong>Rohith</p>
+                    <p><strong>Age:</strong> 30</p>
+                    <p><strong>City:</strong> INDIA , Kerala</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+            <div class="matchProfile">
+                <img class="matchPhoto" src="hboy6.JPG" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong>Sree Raam</p>
+                    <p><strong>Age:</strong> 30</p>
+                    <p><strong>City:</strong> INDIA , Kerala</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+            <div class="matchProfile">
+                <img class="matchPhoto" src="mboy5.jpeg" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong>Satya</p>
+                    <p><strong>Age:</strong> 30</p>
+                    <p><strong>City:</strong> INDIA , Kerala</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+            <div class="matchProfile">
+                <img class="matchPhoto" src="cboy4.jpeg" alt="Match Photo">
+                <div class="matchDetails">
+                    <p><strong>Name:</strong>Hanif</p>
+                    <p><strong>Age:</strong> 30</p>
+                    <p><strong>City:</strong> INDIA , Kerala</p>
+                    <p><button>Intrest</button></p>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <script>
+        // Retrieve stored data
+        
+        const name = localStorage.getItem('name');
+        const gender = localStorage.getItem('gender');
+        const dob = localStorage.getItem('dob');
+        const email = localStorage.getItem('email');
+        const maritalStatus = localStorage.getItem('maritalStatus');
+        const caste = localStorage.getItem('caste');
+        const subCaste = localStorage.getItem('subCaste');
+        const height = localStorage.getItem('height');
+        const weight = localStorage.getItem('weight');
+        const bodytype = localStorage.getItem('bodytype');
+
+        // Display profile summary
+        document.getElementById('profileSummary').innerHTML = `
+            
+            <p><strong>Full Name:</strong> ${name}</p><br>
+            <p><strong>Gender:</strong> ${gender}</p><br>
+            <p><strong>Date of Birth:</strong> ${dob}</p><br>
+            <p><strong>Email:</strong> ${email}</p><br>
+            <p><strong>Marital Status:</strong> ${maritalStatus}</p><br>
+            <p><strong>Caste:</strong> ${caste}</p><br>
+            <p><strong>Sub-Caste:</strong> ${subCaste}</p><br>
+            <p><strong>Height:</strong> ${height} cm</p><br>
+            <p><strong>Weight:</strong> ${weight} kg</p><br>
+            <p><strong>Body Type:</strong> ${bodytype}</p>
+        `;
+        function handleSearchRedirect() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            console.log("Search Query:", query);  // Debugging line
+
+            if (query.includes('hindu') || query.includes('sarah')) {
+                window.location.href = 'hinduboy.html'; // Update file path if needed
+            } else if (query.includes('muslim') || query.includes('john')) {
+                window.location.href = 'muslimboy.html'; // Update file path if needed
+            }else if (query.includes('christian') || query.includes('john')) {
+                window.location.href = 'cristianboy.html';
+              }  else {
+                alert('No matching profiles found for your search query.');
+            }
+        }
+
+        // Prevent form submission and ensure Enter key works
+        document.getElementById('search-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();  // Prevent the form from being submitted
+                handleSearchRedirect();  // Call the search function
+            }
+        });
+
+        // Event listener for search button
+        document.getElementById('search-button').addEventListener('click', function() {
+            handleSearchRedirect();  // Call the search function when button is clicked
+        });
+    </script>
+</header></body>
+</html>

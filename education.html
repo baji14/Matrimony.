@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+            font-family:sans-serif;
+        }
+            header{
+                font-family: sans-serif;
+                width:100%;
+                min-height:100vh;
+                background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('occupation.jpg');
+                background-size: cover;
+                position:relative;
+            }.form-container {
+                padding: 50px;
+                border-radius: 8px;
+                width: 700px;
+                height: 450px;
+                position: absolute;
+                top:20%;
+                left: 25%;
+                margin: 0% auto;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .education {
+                color: green;
+                text-align: center;
+                position: absolute;
+                top:8%;
+                right:45%;
+            }
+            
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            label {
+                font-size: 24px;
+                color:white;
+                margin-top: 10px;
+                text-align: left;
+                font-weight: 700;
+            }
+            
+            input, select {
+                padding: 8px;
+                margin: 5px 0;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            
+            button {
+                padding: 10px;
+                background-color: #5cb85c;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 15px;
+            }
+            
+            button:hover {
+                background-color: #4cae4c;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="education">
+            <h1><i class="fa fa-graduation-cap"></i> Education & occupation</h1>
+        </div>
+            <div class="form-container">
+                <form action="login.html" method="POST">
+                    <!-- Highest Education -->
+                    <label for="education">Highest Education:</label>
+                    <select id="education" name="education" required>
+                        <option value="">Select education level</option>
+                        <option value="High School">High School</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Doctorate">Doctorate</option>
+                        <option value="Other">Other</option>
+                    </select>
+        
+                    <!-- Occupation -->
+                    <label for="occupation">Occupation:</label>
+                    <select id="occupation" name="occupation" required>
+                        <option value="">Select occupation</option>
+                        <option value="Student">Student</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Self-employed">Self-employed</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Retired">Retired</option>
+                    </select>
+        
+                    <!-- Employer -->
+                    <label for="employer">Employer:</label>
+                    <input type="text" id="employer" name="employer" placeholder="Enter employer name" optional>
+        
+                    <!-- Monthly Income -->
+                    <label for="income">Monthly Income (in USD):</label>
+                    <select id="income" name="income" required>
+                        <option value="">Select income range</option>
+                        <option value="Below $1000">Below $1000</option>
+                        <option value="$1000 - $3000">$1000 - $3000</option>
+                        <option value="$3000 - $5000">$3000 - $5000</option>
+                        <option value="$5000 - $10000">$5000 - $10000</option>
+                        <option value="Above $10000">Above $10000</option>
+                    </select>
+        
+                    <!-- Submit Button -->
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <script>
+                document.getElementById('educationOccupationForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+        
+                    // Collect data
+                    const education = document.getElementById('education').value;
+                    const occupation = document.getElementById('occupation').value;
+                    const employer = document.getElementById('employer').value;
+                    const income = document.getElementById('income').value;
+        
+                    // Store data in localStorage
+                    localStorage.setItem('education', education);
+                    localStorage.setItem('occupation', occupation);
+                    localStorage.setItem('employer', employer);
+                    localStorage.setItem('income', income);
+        
+                    // Redirect to the next page (login.html in this case)
+                    window.location.href = 'login.html';
+                });
+            </script>
+
+        </header> 
+        
+    </body>
+</html>

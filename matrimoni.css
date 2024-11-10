@@ -1,0 +1,201 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:sans-serif;
+}   
+header{
+     font-family: sans-serif;
+    width:100%;
+    min-height:130vh;
+    background:url('shadi.JPG.jpg');
+    background-size:cover; 
+    position: relative;
+    background-attachment: fixed;
+
+} 
+  
+.info{
+    font-size:20px;
+    padding:30px 70px;
+    cursor: pointer;
+    background-color:black;
+}
+.info span{
+    margin:0 10px;
+    color:#ccc;
+}
+.nav{
+    width:100%;
+    height:70px;
+    padding:0 70px;
+    display:flex;
+    justify-content:space-between;
+    align-items: center; 
+    position: sticky;
+    background-color:black;
+}
+.logo{
+    font-size: 2em;
+    font-family: normal;
+    letter-spacing: 2px;
+}
+.logo i{
+    color:white;
+}
+.menu a{
+    text-decoration:none;
+    color:white;
+    padding:10px 20px;
+    font-size:20px;
+    transition: 0.5s;
+}
+.menu a:last-child{
+    background:rgb(220, 56, 56);
+    border-radius: 8px;
+
+}
+
+.menu a:hover{
+    background:red;
+    border-radius: 8px;
+}
+
+.box{
+   background :whitesmoke;
+    height:850px;
+    width:600px;
+    position: absolute;
+    top:20%;
+    right:5%;
+    padding:30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+td:first-child {
+    text-align: left;
+    font-weight: bold;
+}
+
+td input[type="text"], 
+td input[type="date"], 
+td input[type="email"], 
+td input[type="tel"],
+td select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background:  rgba(0,0,0,0.1);;
+}
+form{
+    width:100%;
+}
+
+form input[type="text"]{
+    width:100%;
+    padding:8px 10px;
+    margin:10px 0px;
+    outline:none;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.1);
+}
+form input[type="email"]{
+    width:100%;
+    padding:8px 10px;
+    margin:10px 0px;
+    outline:none;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.1);
+
+}
+form input[type="tel"]{
+    width:100%;
+    padding:8px 10px;
+    margin:10px 0px;
+    outline:none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.1);
+}
+form input[type="password"]{
+    width:100%;
+    padding:8px 10px;
+    margin:10px 0px;
+    outline:none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.1);
+}
+
+button{
+    width:100%;
+    padding:10px 10px;
+    margin:10px 0px;
+    outline:none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background:red ;
+    
+}button:hover{
+    background-color: #218838;
+}
+
+.box span{
+    color: darkmagenta;
+    cursor: pointer;
+}
+.box p{
+    width:100%;
+    padding:20px 10px;
+    margin:10px 0px;
+    outline:none;
+    border-radius: 8px;
+    background: rgba(205, 27, 89, 0.687);
+    cursor: pointer;
+    
+}
+.htext{
+    position:absolute;
+    top:40%;
+    left:4%;
+    max-width:600px;
+}
+.htext h1{
+    font-size: 2em;
+}
+.htext h2{
+    font-size: 4em;
+}
+.htext p{
+    font-size:1.5em;
+}
+.copyright{
+    position:absolute;
+    bottom:1%; 
+    color:white;
+    left: auto;
+
+   
+}
+.htext span{
+    color:blueviolet
+}
+.htext p{
+    margin: 10px 0px;
+    line-height: 10px;
+}
+.htext a{
+    margin: 10px 0px;
+}

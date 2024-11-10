@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                padding:0;
+                margin:0;
+                box-sizing:border-box;
+                font-family:sans-serif;}
+            header{
+                font-family: sans-serif;
+                width:100%;
+                min-height:150vh;
+                background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('registration\ pic.jpg');
+                background-size: cover;,
+                position:relative;
+                background-attachment: fixed;
+                
+               
+            }
+.personal{
+     color: greenyellow; 
+     font-size: larger;   
+}
+.marital-form {
+    padding: 20px;
+            border-radius: 8px;
+            width:600px;
+            height:450px;
+            margin: 3% auto;
+            position:absolute;
+            top:10%;
+            left:29%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color:green;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:greenyellow;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight:900;
+    margin-bottom: 5px;
+    color:white;
+    font-size: 24px;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+    <header>
+        <div class="personal">
+           <h1><i class="fa fa-id-card"></i>  Personal details:</h1>
+        </div>
+        <form action ="physical.html" class="marital-form" id="maritalCasteForm">
+            <h2>Marital Status and Caste Information</h2>
+    
+            <!-- Marital Status -->
+            <div class="form-group">
+                <label for="marital-status">Marital Status:</label>
+                <select id="marital-status" name="marital-status">
+                    <option value="">Select Status</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+    
+            <!-- Caste -->
+            <div class="form-group">
+                <label for="caste">Caste:</label>
+                <select id="caste" name="caste">
+                    <option value="">Select Caste</option>
+                    <option value="brahmin">Brahmin</option>
+                    <option value="kshatriya">Kshatriya</option>
+                    <option value="jat">Jat</option>
+                    <option value="shudra">Shudra</option>
+                    <option value="vaishya">Vaishya</option>
+                    <option value="others">others</option>
+                    
+                </select>
+            </div>
+    
+            <!-- Willing to Marry Same Caste -->
+            <div class="form-group">
+                <label>Willing to Marry Same Caste:</label>
+                <input type="radio" id="same-caste-yes" name="same-caste" value="yes">
+                <label for="same-caste-yes">Yes</label>
+                <input type="radio" id="same-caste-no" name="same-caste" value="no">
+                <label for="same-caste-no">No</label>
+            </div>
+    
+            <!-- Willing to Marry Other Caste -->
+            <div class="form-group">
+                <label>Willing to Marry Other Caste:</label>
+                <input type="radio" id="other-caste-yes" name="other-caste" value="yes">
+                <label for="other-caste-yes">Yes</label>
+                <input type="radio" id="other-caste-no" name="other-caste" value="no">
+                <label for="other-caste-no">No</label>
+            </div>
+    
+            <!-- Sub-Caste -->
+            <div class="form-group">
+                <label for="sub-caste">Sub-Caste:</label>
+                <input type="text" id="sub-caste" name="sub-caste" placeholder="Enter Sub-Caste" required>
+            </div>
+    
+            <!-- Country -->
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="">Select Country</option>
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">UK</option>
+                    <option value="australia">Australia</option>
+                </select>
+            </div>
+    
+            <!-- Residency State -->
+            <div class="form-group">
+                <label for="state">Residency State:</label>
+                <input type="text" id="state" name="state" placeholder="Enter Residency State" required>
+            </div>
+    
+            <!-- Residency City -->
+            <div class="form-group">
+                <label for="city">Residency City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter Residency City" required>
+            </div>
+    
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">NEXT</button>
+            </div>
+    
+        </form>
+        
+    
+     
+    <script>
+        document.getElementById('maritalCasteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Collect data
+            const maritalStatus = document.getElementById('marital-status').value;
+            const caste = document.getElementById('caste').value;
+            const subCaste = document.getElementById('sub-caste').value;
+
+            // Store data in localStorage
+            localStorage.setItem('maritalStatus', maritalStatus);
+            localStorage.setItem('caste', caste);
+            localStorage.setItem('subCaste', subCaste);
+
+            // Redirect to the next page
+            window.location.href = 'physical.html';
+        });
+    </script>
+</header>
+    
+</body>
+    
+</html>
